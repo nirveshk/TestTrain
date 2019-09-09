@@ -1,0 +1,171 @@
+import os
+import csv
+import numpy as np
+
+class data_split:
+    def train(self):
+        data = np.genfromtxt('heart.csv', delimiter=',', skip_header=1)
+        print data
+        print np.isnan(data).sum()
+
+def test_train():
+    data = np.genfromtxt('heart.csv', delimiter=',', skip_header=1)
+    count = 0
+    for row in data:
+
+        for column in row: 
+
+            if column == "":
+                print 'a'
+
+        for i in numFiles:
+            file = open(os.path.join(pathName, i), "rU")
+            reader = csv.reader(file, delimiter=',')
+
+        for column in reader:
+            new_data =[]
+            for i in range(len(column[0])):
+                print column[0]
+                if column[i] == "?":
+                    pass
+                if column[i] == "NA":
+                    pass
+                if column[i] == "NAN":
+                    pass
+                else:
+                    new_data.append(column[i])
+            print new_data
+
+    train()
+
+    for column in reader:
+        for i in range(len(column)):
+            if column[i] == "?":
+                pass
+            if column[i] == "NA":
+                pass
+            if column[i] == "NAN":
+                pass
+            else:
+                print column[i]
+
+
+
+    def nan_split(self):
+
+        """
+         uniform division of NANs in test and train data
+            based on the split ratio
+
+        """
+
+        non_nandata = data.dropna(inplace=True)
+        print non_nandata
+
+
+
+
+        for row in data:
+
+            for column in row:
+                if column == :
+                    print "what"
+        count = 0
+        for row in data:
+            # print row
+            # break
+
+            for i in range(len(row)):
+                if row[i] == 'nan':
+                    row[i] = 'yo'
+                print row[i]
+
+                    count += 1
+                else:
+                    pass
+                print count
+
+
+                    #print(numpy.isnan(data).sum())
+
+    test_train()
+
+
+        pathName = os.getcwd()
+
+        dataset = []
+        fileNames = os.listdir(pathName)
+
+        # read file with extension .csv4
+        for fileNames in fileNames:
+            if fileNames.endswith(".csv"):
+                dataset.append(fileNames)
+
+        for k in dataset:
+            file = open(os.path.join(pathName, k), "rU")
+            data = csv.reader(file, delimiter=',')
+            #data_len =sum(1 for line in data)
+            #print data_len
+
+        for column in data:
+            new_data = []
+            for i in range(len(column)):
+                if column[i] == "?":
+                   column[i] = "-" # do not use '-' use np.nan
+                if column[i] == "NA":
+                    column[i] = "-"
+                if column[i] == "NAN":
+                    column[i] = "-"
+                if column[i] == "UNKNOWN":
+                    column[i] = "-"
+                if column[i] == " ":
+                    column[i] = "-"
+                else:
+                    new_data.append(column[i])
+            print new_data
+        return new_data
+
+
+    test_train()
+
+
+    def clean_data():
+        """
+        ignores all unknown value that may hinder further processing of data
+
+
+        """
+
+        rowwise_missing_entries = len(test_train()) - np.sum(data == test_train(), axis=0)
+        print rowwise_missing_entries
+    clean_data()
+
+
+    def split_ratio(row_len):
+        """
+
+        :return: data split ratio based on the number of data points
+        """
+        if row_len <= 500:
+            train = 80
+            test = 20
+        elif row_len > 500 and row_len <= 10000:
+            train = 75
+            test = 25
+        elif row_len > 10000 and row_len <=100000:
+            train = 70
+            test = 30
+        else:
+            train = 60
+            test = 40
+        print 'train:',train, 'test:',test
+
+    split_ratio(0)
+
+
+
+
+
+
+
+data_split().train()
